@@ -30,10 +30,10 @@ Particle.prototype.update = function() {
   // Check for particle overlapping screen and draw
   if (this.x + this.size > canvas.width || this.x - this.size < 0) {
     this.directionX = -this.directionX;
-  }
+  };
   if (this.y + this.size > canvas.height || this.y - this.size < 0) {
     this.directionY = -this.directionY;
-  }
+  };
   this.x += this.directionX;
   this.y += this.directionY;
   this.draw();
@@ -51,7 +51,7 @@ function init() {
     let directionY = (Math.random() * .4) - .2;
     let color = 'white';
     particleArray.push(new Particle(x, y, directionX, directionY, size, color));
-  }
+  };
 }
 
 /** 
@@ -62,8 +62,16 @@ function animate() {
 
   for (let i = 0; i < particleArray.length; i++) {
     particleArray[i].update();
-  }
+  };
 }
+
+/** 
+ * ! Event listener for window size change. Rerender snowflakes */
+window.addEventListener('resize', function() {
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+  init();
+});
 
 init();
 animate();
