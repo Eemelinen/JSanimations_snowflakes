@@ -1,5 +1,6 @@
 const canvas = document.getElementById('canvas1');
 const ctx = canvas.getContext('2d');
+// document.body.style.background = "url(" + canvas.toDataURL() + ")";
 ctx.canvas.width = window.innerWidth;
 ctx.canvas.height = window.innerHeight;
 let particleArray;
